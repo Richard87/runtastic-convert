@@ -1,0 +1,11 @@
+{
+    "name": "richard/runtastic-convert",
+    "require": {
+    },
+    "authors": [
+        {
+            "name": "Richard Hagen",
+            "email": "richard.hagen@gmail.com"
+        }
+    ]
+}
