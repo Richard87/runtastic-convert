@@ -1,6 +1,16 @@
 {
     "name": "richard/runtastic-convert",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
     "require": {
+        "ext-zip": "*",
+        "ext-json": "*",
+        "ext-dom": "*",
+        "phpunit/phpunit": "^7.4"
     },
     "authors": [
         {
