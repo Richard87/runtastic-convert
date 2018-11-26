@@ -11,7 +11,6 @@ namespace App;
 
 class Workout
 {
-    public const SPORT_TYPE_RUNNING = 1;
     private $startAt;
 
     private const XSD_GPX = "http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/1/1/gpx.xsd";
@@ -28,6 +27,7 @@ class Workout
 
     public function __construct(\DateTime $startAt)
     {
+        $this->startAt = $startAt;
         $document = new \DOMDocument("1.0", "UTF-8");
         $root = $document->createElementNS("http://www.topografix.com/GPX/1/1","gpx");
         $root->setAttribute("xsi:schemaLocation", self::XSD_GPX . " " . self::XSD_GPX_EXTENSION . " " . self::XSD_TRACK_POINT);
@@ -56,9 +56,15 @@ class Workout
         $this->trkseg  = $document->createElement("trkseg");
         $root->appendChild($trk);
         $trk->appendChild($this->trkseg);
+        $trk->appendChild($document->createElement("type", "running"));
 
         $document->appendChild($root);
         $this->document = $document;
+    }
+
+    public function getStartAt(): \DateTime
+    {
+        return $this->startAt;
     }
 
     public function addPoint(string $longitude, string $latitude, string $elevation, \DateTime $time, string $heartRate = null): void

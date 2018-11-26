@@ -10,7 +10,8 @@
         "ext-zip": "*",
         "ext-json": "*",
         "ext-dom": "*",
-        "phpunit/phpunit": "^7.4"
+        "phpunit/phpunit": "^7.4",
+        "symfony/console": "^4.1"
     },
     "authors": [
         {
